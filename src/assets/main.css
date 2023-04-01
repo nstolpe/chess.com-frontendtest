@@ -1,0 +1,40 @@
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --red: #ff0000;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  font-weight: normal;
+  line-height: 1.5;
+}
+
+html,
+body {
+  height: 100%;
+}
+html {
+  font-size: 10px;
+}
+body {
+  min-width: 320px;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  font-weight: normal;
+  height: 100vh;
+  background-color: #d3d3d3;
+}
+
+@media (min-width: 1024px) {
+  #app {
+    flex-direction: row;
+  }
+}
