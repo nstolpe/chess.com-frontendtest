@@ -20,11 +20,48 @@ const recordClickedSquare = () => {
     store.clickedSquares = [coordinatesString.value, ...store.clickedSquares]
   }
 }
+const inTopRow = (idx) => idx >= 0 && idx <= 7
+const inBottomRow = (idx) => idx >= 56 && idx <= 63
+const inLeftRow = (idx) => [0, 8, 16, 24, 32, 40, 48, 56].includes(idx)
+const inRightRow = (idx) => [7, 15, 23, 31, 39, 47, 55, 63].includes(idx)
+
+const focusButtonByIdx = (idx) => {
+  const target = document.querySelector(`.square-button.idx-${idx}`)
+  target.focus()
+}
+const moveUp = () => {
+  const { idx } = props
+  const targetIdx = inTopRow(idx) ? idx + 56 : idx - 8
+  focusButtonByIdx(targetIdx)
+}
+const moveDown = () => {
+  const { idx } = props
+  const targetIdx = inBottomRow(idx) ? idx - 56 : idx + 8
+  focusButtonByIdx(targetIdx)
+}
+const moveLeft = () => {
+  const { idx } = props
+  const targetIdx = inLeftRow(idx) ? idx + 7 : idx - 1
+  focusButtonByIdx(targetIdx)
+}
+const moveRigt = () => {
+  const { idx } = props
+  const targetIdx = inRightRow(idx) ? idx - 7 : idx + 1
+  focusButtonByIdx(targetIdx)
+}
 </script>
 
 <template>
   <div class="square">
-    <button class="square-button" :class="{ selected: isSelected }" @click="recordClickedSquare">
+    <button
+      class="square-button"
+      :class="[{ selected: isSelected }, `idx-${idx}`]"
+      @click="recordClickedSquare"
+      @keydown.up="moveUp"
+      @keydown.down="moveDown"
+      @keydown.left="moveLeft"
+      @keydown.right="moveRigt"
+    >
       {{ coordinatesString }}
     </button>
   </div>
@@ -47,7 +84,7 @@ const recordClickedSquare = () => {
     font-family: serif;
     font-size: 1.6rem;
     outline: none;
-    transition: all 0.2s ease;
+    transition: font-size 0.1s ease;
 
     &::after {
       content: '';
