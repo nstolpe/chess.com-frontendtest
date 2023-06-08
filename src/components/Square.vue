@@ -44,7 +44,7 @@ const moveLeft = () => {
   const targetIdx = inLeftRow(idx) ? idx + 7 : idx - 1
   focusButtonByIdx(targetIdx)
 }
-const moveRigt = () => {
+const moveRight = () => {
   const { idx } = props
   const targetIdx = inRightRow(idx) ? idx - 7 : idx + 1
   focusButtonByIdx(targetIdx)
@@ -60,7 +60,7 @@ const moveRigt = () => {
       @keydown.up="moveUp"
       @keydown.down="moveDown"
       @keydown.left="moveLeft"
-      @keydown.right="moveRigt"
+      @keydown.right="moveRight"
     >
       {{ coordinatesString }}
     </button>
