@@ -21,10 +21,6 @@ Welcome to the [Chess.com](https://chess.com) front end programming challenge!
 6. Keep track of which squares are clicked and the order in which they're clicked.
 7. Display the information collected from step 6 in the sidebar.
 
-# Questions & Feedback
-
-Please contact Nick Kampa (nkampa@chess.com) with any questions or feedback regarding this challenge.
-
 ## Customize configuration
 
 See [Vite Configuration Reference](https://vitejs.dev/config/).
