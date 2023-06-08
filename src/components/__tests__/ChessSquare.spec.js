@@ -1,7 +1,7 @@
 import { describe, it, expect, afterEach } from 'vitest'
 import { mount } from '@vue/test-utils'
 
-import Square from '@/components/Square.vue'
+import ChessSquare from '@/components/ChessSquare.vue'
 import { store } from '@/store.js'
 import { getAlgebraicCoordinates } from '@/utilities'
 
@@ -16,7 +16,7 @@ describe('Square', () => {
     const idx2 = 1
     const value1 = getAlgebraicCoordinates(idx1)
     const value2 = getAlgebraicCoordinates(idx2)
-    let wrapper = mount(Square, {
+    let wrapper = mount(ChessSquare, {
       props: { idx: idx1 }
     })
     let button = wrapper.find('.square-button')
@@ -26,7 +26,7 @@ describe('Square', () => {
     expect(store.clickedSquares[0]).toEqual(value1.join(''))
     expect(store.activeSquareIndex).toEqual(idx1)
 
-    wrapper = mount(Square, {
+    wrapper = mount(ChessSquare, {
       props: { idx: idx2 }
     })
     button = wrapper.find('.square-button')
@@ -39,7 +39,7 @@ describe('Square', () => {
 
   it('does not update the store on duplicate click', () => {
     const idx = 0
-    let wrapper = mount(Square, {
+    let wrapper = mount(ChessSquare, {
       props: { idx }
     })
     let button = wrapper.find('.square-button')

@@ -1,9 +1,9 @@
 <script setup>
-import Board from '@/components/Board.vue'
-import Sidebar from '@/components/Sidebar.vue'
+import ChessBoard from '@/components/ChessBoard.vue'
+import SideBar from '@/components/SideBar.vue'
 </script>
 
 <template>
-  <Board />
-  <Sidebar />
+  <ChessBoard />
+  <SideBar />
 </template>

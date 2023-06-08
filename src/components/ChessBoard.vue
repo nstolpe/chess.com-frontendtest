@@ -1,11 +1,11 @@
 <script setup>
-import Square from '@/components/Square.vue'
+import ChessSquare from '@/components/ChessSquare.vue'
 </script>
 
 <template>
   <div class="board-wrapper">
     <div class="board">
-      <Square v-for="n in 64" :key="n" :idx="n - 1" />
+      <ChessSquare v-for="n in 64" :key="n" :idx="n - 1" />
     </div>
   </div>
 </template>
